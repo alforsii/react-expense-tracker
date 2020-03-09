@@ -12,7 +12,6 @@ import './App.css';
 function App() {
   return (
     <GlobalProvider>
-      {' '}
       <Header />
       <div>
         <Balance />

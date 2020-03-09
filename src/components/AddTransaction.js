@@ -3,8 +3,8 @@ import { GlobalContext } from '../context/GlobalState';
 import { uuid } from 'uuidv4';
 
 export const AddTransaction = () => {
-  const [text, setText] = useState('');
-  const [amount, setAmount] = useState(0);
+  const [text, setText] = useState(''); //default goes as a param
+  const [amount, setAmount] = useState(0); //default goes as a param
 
   const { addTransaction } = useContext(GlobalContext);
   const onSubmit = e => {
@@ -14,7 +14,6 @@ export const AddTransaction = () => {
       text,
       amount: +amount,
     };
-    console.log('Output for: AddTransaction -> newTransaction', newTransaction);
 
     addTransaction(newTransaction);
   };
@@ -43,7 +42,9 @@ export const AddTransaction = () => {
             placeholder="Enter amount..."
           />
         </div>
-        <button className="btn">Add transaction</button>
+        <button type="submit" className="btn">
+          Add transaction
+        </button>
       </form>
     </>
   );

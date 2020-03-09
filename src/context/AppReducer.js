@@ -1,16 +1,17 @@
 export default (state, action) => {
-  switch (action.type) {
+  //state and actions comes from GlobalState.js
+  switch (action.callType) {
     case 'DELETE_TRANSACTION':
       return {
         ...state,
         transactions: state.transactions.filter(
-          transaction => transaction.id !== action.payload
+          transaction => transaction.id !== action.idOrObj
         ),
       };
     case 'ADD_TRANSACTION':
       return {
         ...state,
-        transactions: [action.payload, ...state.transactions],
+        transactions: [action.idOrObj, ...state.transactions],
       };
     default:
       return state;

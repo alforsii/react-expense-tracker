@@ -16,21 +16,21 @@ export const GlobalContext = createContext(initialState);
 
 //Provider component
 export const GlobalProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(AppReducer, initialState);
+  const [state, callAppReducer] = useReducer(AppReducer, initialState);
 
   //-------------actions ---------------
   //delete
   function deleteTransaction(id) {
-    dispatch({
-      type: 'DELETE_TRANSACTION',
-      payload: id,
+    callAppReducer({
+      callType: 'DELETE_TRANSACTION',
+      idOrObj: id,
     });
   }
   //add
   function addTransaction(transaction) {
-    dispatch({
-      type: 'ADD_TRANSACTION',
-      payload: transaction,
+    callAppReducer({
+      callType: 'ADD_TRANSACTION',
+      idOrObj: transaction,
     });
   }
 
